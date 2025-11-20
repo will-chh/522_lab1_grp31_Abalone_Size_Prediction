@@ -1,82 +1,87 @@
-UBC MDS — DSCI 522 Group 31
+## Contributor Covenant Code of Conduct
 
 1. Purpose
 
 This Code of Conduct outlines the standards of behavior expected from all members of Group 31 throughout the DSCI 522 project. Our goal is to maintain a respectful, transparent, collaborative, and professional working environment that enables all teammates to contribute effectively.
 
-2. Who Is Covered
+2. Scope
 
-This Code applies to all project-related interactions, including:
+This Code of Conduct applies to all project-related interactions, including but not limited to GitHub Discussions and Issues, Slack communication, email exchanges, group meetings (virtual or in person), and collaboration on code, documents, and project planning. It also applies in any public context where a team member is representing the project or group.
 
-GitHub Discussions and Issues
+3. Our Pledges
 
-Slack communication
+We, as contributors and maintainers, pledge to make participation in our project a harassment-free and inclusive experience for everyone. We commit to a team culture grounded in:
 
-Email
+- Respect: treating each teammate with courtesy and consideration.
 
-Group meetings (virtual or in person)
+- Transparency: communicating openly about progress, challenges, deadlines, and availability.
 
-Collaboration on code, documents, and project planning
+- Collaboration: supporting one another and sharing responsibilities fairly.
 
-3. Our Values
+- Professionalism: maintaining a constructive, responsible, and reliable approach to all project tasks.
 
-We commit to upholding the following values:
-
-Respect — Treat all teammates with courtesy and consideration.
-
-Transparency — Communicate openly about progress, challenges, and availability.
-
-Collaboration — Support each other and share responsibilities fairly.
-
-Professionalism — Maintain a constructive, responsible, and reliable approach to all project tasks.
+- Empathy: recognizing the humanity, challenges, and individual contexts of team members.
 
 4. Expected Behavior
 
-Team members agree to:
+All team members agree to conduct themselves in ways that support a positive and productive working environment. This includes:
 
-Communicate clearly and professionally.
+- Communicating clearly, kindly, and professionally.
 
-Be responsive within reasonable timeframes.
+- Being responsive within reasonable timeframes and notifying teammates of expected delays or challenges.
 
-Provide constructive, respectful feedback.
+- Providing constructive and respectful feedback, and accepting feedback graciously.
 
-Acknowledge mistakes and work collaboratively to resolve issues.
+- Acknowledging mistakes and working collaboratively to address problems.
 
-Contribute fairly to code, writing, discussions, and decision-making.
+- Contributing fairly to code, writing, discussions, decision-making, and meetings.
 
-Create a welcoming and inclusive environment for all members.
+- Using inclusive language and being mindful of how actions or words may impact others.
+
+- Helping maintain an environment where everyone feels welcome and supported.
 
 5. Unacceptable Behavior
 
-The following behaviors are not permitted:
+Behavior that undermines this environment is not permitted. Examples include, but are not limited to:
 
-Disrespectful, dismissive, or hostile communication
+- Use of sexualized language or imagery; unwelcome sexual attention or advances
 
-Personal attacks or derogatory remarks
+- Trolling, insulting or derogatory comments, and personal or political attacks
 
-Intentionally withholding information relevant to the project
+- Public or private harassment
 
-Persistent unresponsiveness without notice
+- Disrespectful, dismissive, or hostile communication
 
-Sabotaging, blocking, or undermining team progress
+- Publishing private information (such as physical or email addresses) without explicit permission
 
-Any form of discrimination or harassment
+- Persistently being unresponsive without notice
 
-6. Reporting and Conflict Resolution
+- Withholding information essential for team progress
 
-If an issue arises, we follow this process:
+- Sabotaging, blocking, or undermining the project
 
-Direct conversation (optional): The concerned members may attempt to resolve the issue privately and professionally.
+- Any form of discrimination or harassment
 
-Reporting: If unresolved, any teammate may report the issue confidentially to any other team member of their choice.
+- Any conduct that could reasonably be considered inappropriate in a professional or academic setting
 
-Team discussion: The group will discuss the matter collectively and aim for a fair resolution.
+6. Responsibilities
 
-Escalation: If the issue still cannot be resolved internally, the team will seek guidance from the course instructional staff.
+Team members and maintainers are responsible for clarifying expected standards and ensuring the Code of Conduct is upheld. They may take appropriate and fair corrective actions in response to any instance of unacceptable behavior. This includes removing or editing contributions (such as comments, commits, issues, or documentation) that violate this Code, or temporarily/permanently restricting participation if necessary.
 
-Retaliation against anyone reporting a concern is strictly prohibited.
+Failure to enforce the Code of Conduct in good faith may result in further action decided by the rest of the team or by course instructional staff.
 
-7. Commitment
+7. Reporting and Conflict Resolution
+If a concern arises, the following process will be used:
+
+(1) Direct conversation: Individuals involved may first try to resolve the issue privately and professionally.
+
+(2) Reporting within the team: If unresolved, any teammate may confidentially report the issue to another team member of their choice.
+
+(3) Team discussion: The group will collectively discuss the matter and work toward a fair, transparent resolution.
+
+(4) Escalation: If the team cannot reach a resolution, the concern will be escalated to the course instructional staff for further guidance.
+
+8. Commitment
 
 By participating in this project, each member of Group 31 agrees to abide by this Code of Conduct and uphold a healthy, respectful, and productive team environment.
 
