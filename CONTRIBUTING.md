@@ -1,35 +1,41 @@
-UBC MDS — DSCI 522 Group 31
-1. How to Contribute
+# Contributing to the Abalone Age Predictor Project
 
-Create a new branch for each feature, fix, or update.
+(modified from Breast Cancer Predictor contributing document)
+This outlines how to propose a change to the Abalone Age Predictor Project. 
 
-Push your work to the branch and open a Pull Request (PR) on GitHub.
+### Prerequisites
 
-At least one teammate must review and approve the PR before it is merged into main.
+Before you make a substantial pull request, you should always file an issue and make sure someone from the team agrees that it's a problem. If you've found a bug, create an associated issue and illustrate the bug with a minimal reprex.
 
-2. Commit Guidelines
+### Pull Request Process
 
-Write clear and descriptive commit messages.
+- We recommend that you create a Git branch for each pull request (PR).
 
-Commit frequently when meaningful progress is made.
+- New code should follow the [tidyverse style guide](https://style.tidyverse.org/) or [PEP8 style guide](https://peps.python.org/pep-0008/).
 
-Keep commits focused—avoid mixing unrelated changes.
+### How to Contribute
 
-3. Communication
+- Create a new branch for each feature, fix, or update.
 
-Use GitHub Discussions or Issues and/or SLACK Channel to ask questions, propose changes, or flag problems.
+- Push your work to the branch and open a Pull Request (PR) on GitHub.
 
-Major changes should be discussed with the group before implementation.
+- At least one member of the team must review and approve the PR before it is merged into main.
 
-4. Reporting Issues
+### Commit Guidelines
+
+- Write clear and descriptive commit messages.
+
+- Commit frequently when meaningful progress is made.
+
+- Keep commits focused—avoid mixing unrelated changes.
+
+
+### Reporting Issues
 
 If you find a bug, concern, or inconsistency:
 
-Open a GitHub Issue describing the problem,
-or
+Open a GitHub Issue describing the problem, or notify any teammate directly if the issue is sensitive.
 
-Notify any teammate directly if the issue is sensitive.
+### Code of Conduct
 
-5. Code of Conduct
-
-All contributions must follow our CODE_OF_CONDUCT.md.
+All contributions must follow our [CODE_OF_CONDUCT.md](https://github.com/will-chh/522_lab1_grp31_Abalone_Size_Prediction/blob/main/CODE_OF_CONDUCT.md).
