@@ -32,3 +32,4 @@ Lastly navigate to the Milestone1_Abalone_Age_Prediction.ipynb and run all cells
 
 ## License 
 MIT License
+Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0) license
