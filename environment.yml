@@ -25,6 +25,12 @@ dependencies:
   - catboost
   - nltk
   - imbalanced-learn
+
+  - pip:
+      - pandera[pandas]
+      - deepchecks
+      - pointblank
+      
   # Optional pip-only extras (install manually if needed):
   # - pip:
   #   - mglearn
