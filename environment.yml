@@ -11,7 +11,7 @@ dependencies:
   - altair=5.4.*
   - vega_datasets
   - scipy
-  - matplotlib>=3.2.2
+  - matplotlib=3.8.*
   - scikit-learn
   - requests>=2.24.0
   - graphviz
@@ -30,7 +30,7 @@ dependencies:
       - pandera[pandas]
       - deepchecks
       - pointblank
-      
+
   # Optional pip-only extras (install manually if needed):
   # - pip:
   #   - mglearn
