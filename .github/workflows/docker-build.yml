@@ -11,6 +11,9 @@ on:
   # also allow manual trigger
   workflow_dispatch:
 
+permissions:
+  contents: write
+  
 jobs:
   update-lock-file:
     runs-on: ubuntu-latest
