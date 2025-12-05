@@ -1,38 +1,17 @@
-name: 'dsci_522_lab_env'
+name: 522_lab
 channels:
   - conda-forge
   - defaults
 dependencies:
-  - python>=3.11,<3.13
-  - pip
-  - ipykernel
-  - nb_conda_kernels
-  - otter-grader=6.*
-  - altair=5.4.*
-  - vega_datasets
-  - scipy
-  - matplotlib=3.8.*
-  - scikit-learn
-  - requests>=2.24.0
-  - graphviz
-  - python-graphviz
-  - eli5
-  - shap>=0.45
-  - jinja2
-  - lightgbm
-  - spacy
-  - xgboost
-  - catboost
-  - nltk
-  - imbalanced-learn
-
+  - python=3.11
+  - numpy=1.26.4
+  - pandas=2.3.3
+  - matplotlib=3.10.8
+  - scikit-learn=1.7.2
+  - altair=6.0.0
+  - pandera=0.27.0
+  - ipykernel=7.1.0
+  - pip=24.2
   - pip:
-      - pandera[pandas]
-      - deepchecks
-      - pointblank
+      - deepchecks==0.19.1
 
-  # Optional pip-only extras (install manually if needed):
-  # - pip:
-  #   - mglearn
-  #   - spacymoji
-  #   - altair_ally>=0.1.1
