@@ -12,57 +12,57 @@ This Code of Conduct applies to all project-related interactions, including but 
 
 We, as contributors and maintainers, pledge to make participation in our project a harassment-free and inclusive experience for everyone. We commit to a team culture grounded in:
 
-- Respect: treating each teammate with courtesy and consideration.
+-   Respect: treating each teammate with courtesy and consideration.
 
-- Transparency: communicating openly about progress, challenges, deadlines, and availability.
+-   Transparency: communicating openly about progress, challenges, deadlines, and availability.
 
-- Collaboration: supporting one another and sharing responsibilities fairly.
+-   Collaboration: supporting one another and sharing responsibilities fairly.
 
-- Professionalism: maintaining a constructive, responsible, and reliable approach to all project tasks.
+-   Professionalism: maintaining a constructive, responsible, and reliable approach to all project tasks.
 
-- Empathy: recognizing the humanity, challenges, and individual contexts of team members.
+-   Empathy: recognizing the humanity, challenges, and individual contexts of team members.
 
 ## Expected Behavior
 
 All team members agree to conduct themselves in ways that support a positive and productive working environment. This includes:
 
-- Communicating clearly, kindly, and professionally.
+-   Communicating clearly, kindly, and professionally.
 
-- Being responsive within reasonable timeframes and notifying teammates of expected delays or challenges.
+-   Being responsive within reasonable timeframes and notifying teammates of expected delays or challenges.
 
-- Providing constructive and respectful feedback, and accepting feedback graciously.
+-   Providing constructive and respectful feedback, and accepting feedback graciously.
 
-- Acknowledging mistakes and working collaboratively to address problems.
+-   Acknowledging mistakes and working collaboratively to address problems.
 
-- Contributing fairly to code, writing, discussions, decision-making, and meetings.
+-   Contributing fairly to code, writing, discussions, decision-making, and meetings.
 
-- Using inclusive language and being mindful of how actions or words may impact others.
+-   Using inclusive language and being mindful of how actions or words may impact others.
 
-- Helping maintain an environment where everyone feels welcome and supported.
+-   Helping maintain an environment where everyone feels welcome and supported.
 
 ## Unacceptable Behavior
 
 Behavior that undermines this environment is not permitted. Examples include, but are not limited to:
 
-- Use of sexualized language or imagery; unwelcome sexual attention or advances
+-   Use of sexualized language or imagery; unwelcome sexual attention or advances
 
-- Trolling, insulting or derogatory comments, and personal or political attacks
+-   Trolling, insulting or derogatory comments, and personal or political attacks
 
-- Public or private harassment
+-   Public or private harassment
 
-- Disrespectful, dismissive, or hostile communication
+-   Disrespectful, dismissive, or hostile communication
 
-- Publishing private information (such as physical or email addresses) without explicit permission
+-   Publishing private information (such as physical or email addresses) without explicit permission
 
-- Persistently being unresponsive without notice
+-   Persistently being unresponsive without notice
 
-- Withholding information essential for team progress
+-   Withholding information essential for team progress
 
-- Sabotaging, blocking, or undermining the project
+-   Sabotaging, blocking, or undermining the project
 
-- Any form of discrimination or harassment
+-   Any form of discrimination or harassment
 
-- Any conduct that could reasonably be considered inappropriate in a professional or academic setting
+-   Any conduct that could reasonably be considered inappropriate in a professional or academic setting
 
 ## Responsibilities
 
@@ -71,6 +71,7 @@ Team members and maintainers are responsible for clarifying expected standards a
 Failure to enforce the Code of Conduct in good faith may result in further action decided by the rest of the team or by course instructional staff.
 
 ## Reporting and Conflict Resolution
+
 If a concern arises, the following process will be used:
 
 (1) Direct conversation: Individuals involved may first try to resolve the issue privately and professionally.
@@ -80,6 +81,10 @@ If a concern arises, the following process will be used:
 (3) Team discussion: The group will collectively discuss the matter and work toward a fair, transparent resolution.
 
 (4) Escalation: If the team cannot reach a resolution, the concern will be escalated to the course instructional staff for further guidance.
+
+## Enforcement
+
+Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by contacting the project team at [ji778\@student.ubc.ca](mailto:ji778@student.ubc.ca){.email} . All reports will be reviewed and investigated, and the project team will respond in a manner they determine to be fair and appropriate based on the circumstances. The project team will maintain confidentiality regarding the individual submitting the report. Additional details about enforcement procedures may be provided separately.
 
 ## Commitment
 
