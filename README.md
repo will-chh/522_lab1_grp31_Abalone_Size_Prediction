@@ -21,6 +21,23 @@ Install the project environment by running `conda env create --file environment.
 
 Lastly navigate to the Milestone1_Abalone_Age_Prediction.ipynb and run all cells. 
 
+## Loading Docker Container: 
+Commands Draft: 
+
+#### Build the Docker image locally
+docker build --no-cache -t willchh/522_grp31_abalone_age_prediction:latest .
+
+#### Run the container interactively with a shell
+docker run -it --rm \
+ -p 8888:8888 \
+ -v $(pwd):/workplace \
+ -w /workplace \
+ willchh/522_grp31_abalone_age_prediction:latest \
+ bash
+
+#### Run your analysis script manually
+python script.py
+
 ## Contributors:
 - Yuting Ji
 

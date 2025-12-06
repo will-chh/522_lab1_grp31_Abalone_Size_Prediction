@@ -1,0 +1,32 @@
+name: 'dsci_522_lab_env'
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python>=3.11,<3.13
+  - pip
+  - ipykernel
+  - nb_conda_kernels
+  - otter-grader=6.*
+  - altair-all=5.4.*
+  - vega_datasets
+  - scipy
+  - matplotlib>=3.2.2
+  - scikit-learn
+  - requests>=2.24.0
+  - graphviz
+  - python-graphviz
+  - eli5
+  - shap>=0.45
+  - jinja2
+  - lightgbm
+  - spacy
+  - xgboost
+  - catboost
+  - nltk
+  - imbalanced-learn
+  # Optional pip-only extras (install manually if needed):
+  # - pip:
+  #   - mglearn
+  #   - spacymoji
+  #   - altair_ally>=0.1.1
