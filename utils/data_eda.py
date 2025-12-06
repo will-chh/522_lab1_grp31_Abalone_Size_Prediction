@@ -1,5 +1,6 @@
 import altair as alt
 import pandas as pd
+import click
 
 NEW_COLUMN_NAMES = [
     "Length", "Diameter", "Height",
@@ -20,3 +21,15 @@ def scatter_matrix(df: pd.DataFrame) -> alt.Chart:
         .properties(title="Scatterplot matrix of abalone physical features and rings")
     )
     return chart
+
+@click.command()
+@click.option("--input_path", required=True, type=str, help="Path to validated CSV")
+@click.option("--output_path", required=True, type=str, help="Path to save the scatter matrix figure")
+def main(input_path, output_path):
+    df = pd.read_csv(input_path)
+    chart = scatter_matrix(df)
+    chart.save(output_path)
+    print(f"Scatter matrix saved to {output_path}")
+
+if __name__ == "__main__":
+    main()

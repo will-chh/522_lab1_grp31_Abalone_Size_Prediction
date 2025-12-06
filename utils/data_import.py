@@ -1,5 +1,6 @@
 import pandas as pd
 from pandera import Column, Check, DataFrameSchema
+import click
 
 # Allowed categories for Sex
 SEX_CATEGORIES = ["M", "F", "I"]
@@ -74,3 +75,14 @@ def load_and_validate_abalone(url) -> pd.DataFrame:
     abalone_validated = abalone_schema.validate(abalone_raw, lazy=True)
 
     return abalone_validated
+
+@click.command()
+@click.option("--input_path", required=True, type=str, help="URL or local path to raw CSV")
+@click.option("--output_path", required=True, type=str, help="Path to save validated CSV")
+def main(input_path, output_path):
+    abalone_validated = load_and_validate_abalone(input_path)
+    abalone_validated.to_csv(output_path, index=False)
+    print(f"Validated data saved to {output_path}")
+
+if __name__ == "__main__":
+    main()
