@@ -35,7 +35,7 @@ def main(train_path, model_output, scaler_output, n_neighbors):
     y_train = train_df["Rings"]
 
     # Fit KNN
-    from __main__ import fit_knn_regressor  # imports the function from this file
+    # from __main__ import fit_knn_regressor  # imports the function from this file
     knn, scaler = fit_knn_regressor(X_train, y_train, n_neighbors)
 
     # Save model and scaler
@@ -46,6 +46,7 @@ def main(train_path, model_output, scaler_output, n_neighbors):
 
     print(f"KNN model saved to {model_output}")
     print(f"Scaler saved to {scaler_output}")
+    print("Model fitting completed successfully.")
 
 if __name__ == "__main__":
     main()

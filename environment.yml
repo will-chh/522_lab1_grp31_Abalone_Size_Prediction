@@ -12,6 +12,7 @@ dependencies:
   - pandera=0.27.0
   - ipykernel=6.29.5
   - jupyterlab=4.2.5
+  - click=8.1.7
   - pip=24.2
   - pip:
       - deepchecks==0.19.1
