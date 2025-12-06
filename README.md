@@ -44,47 +44,35 @@ python script.py
 
 ## Running Scripts Separately
 #### Step 1: Running only data_import
-python utils/data_import.py \
+python utils/01_data_import.py \
   --input_path https://archive.ics.uci.edu/ml/machine-learning-databases/abalone/abalone.data \
   --output_path data/processed/cleaned_abalone.csv
 
 #### Step 2: Running only data eda
-python utils/data_eda.py \
+python utils/02_data_eda.py \
   --input_path data/processed/cleaned_abalone.csv \
   --output_path results/eda_scatter_matrix.png
 
 #### Step 3: Running model preprocess
-python utils/model_preprocess.py \
+python utils/03_model_preprocess.py \
   --input_path data/processed/cleaned_abalone.csv \
   --train_output data/processed/train.csv \
   --test_output data/processed/test.csv
 
 #### Step 4: Running model eval
-python utils/model_fit.py \
+python utils/04_model_fit.py \
   --train_path data/processed/train.csv \
   --model_output results/knn_model.pkl \
   --scaler_output results/knn_scaler.pkl \
   --n_neighbors 5
 
 #### Step 5: Model Evaluation Step with plotting Actual vs Predicted Values
-python utils/model_eval.py \
+python utils/05_model_eval.py \
   --train_path data/processed/train.csv \
   --test_path data/processed/test.csv \
   --model_path results/knn_model.pkl \
   --scaler_path results/knn_scaler.pkl \
   --plot_output results/knn_eval_plot.png
-
-
-#### Reminder for myself to put these in the Makefile:
-import:
-    python utils/data_import.py \
-        --input_path https://archive.ics.uci.edu/... \
-        --output_path data/processed/cleaned_abalone.csv
-
-eda:
-    python utils/data_eda.py \
-        --input_path data/processed/cleaned_abalone.csv \
-        --output_path results/eda_scatter_matrix.png
 
 ## Contributors:
 - Yuting Ji
