@@ -1,5 +1,9 @@
 # 522_lab1_grp31_Abalone_Size_Prediction
-DSCI 522 Section 2 Group 31 Repository 
+DSCI 522 Section 2 Group 31 Repository
+
+# Abalone Abalone, Yummy Yummy in my Tummy! >< 
+
+Welcome to our Abalone Size Prediction Project! 
 
 ## Description
 This project aims to predict the age of an abalone from its physical features and sex. The model used in analysis is k-Nearest Neighbhours (k-NN) Regressor. The resulting model estimates the age of new abalone by identifying the k nearest abalones in the training set. 
@@ -37,6 +41,38 @@ docker run -it --rm \
 
 #### Run your analysis script manually
 python script.py
+
+## Running Scripts Separately
+#### Step 1: Running only data_import
+python utils/01_data_import.py \
+  --input_path https://archive.ics.uci.edu/ml/machine-learning-databases/abalone/abalone.data \
+  --output_path data/processed/cleaned_abalone.csv
+
+#### Step 2: Running only data eda
+python utils/02_data_eda.py \
+  --input_path data/processed/cleaned_abalone.csv \
+  --output_path results/eda_scatter_matrix.png
+
+#### Step 3: Running model preprocess
+python utils/03_model_preprocess.py \
+  --input_path data/processed/cleaned_abalone.csv \
+  --train_output data/processed/train.csv \
+  --test_output data/processed/test.csv
+
+#### Step 4: Running model eval
+python utils/04_model_fit.py \
+  --train_path data/processed/train.csv \
+  --model_output results/knn_model.pkl \
+  --scaler_output results/knn_scaler.pkl \
+  --n_neighbors 5
+
+#### Step 5: Model Evaluation Step with plotting Actual vs Predicted Values
+python utils/05_model_eval.py \
+  --train_path data/processed/train.csv \
+  --test_path data/processed/test.csv \
+  --model_path results/knn_model.pkl \
+  --scaler_path results/knn_scaler.pkl \
+  --plot_output results/knn_eval_plot.png
 
 ## Contributors:
 - Yuting Ji
