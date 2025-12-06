@@ -1,0 +1,143 @@
+---
+title: Abalone Age Prediction based on Physical Measurements and Sex
+author: "Team31: Yuting Ji, Gurveer Madurai, Seungmyun Park & William Chong"
+date: "2025/12/06"
+jupyter: python3
+format: 
+    html:
+        toc: true
+        toc-depth: 2
+    pdf:
+        toc: true
+        toc-depth: 2
+bibliography: references.bib
+execute:
+  echo: false
+  warning: false
+editor: source
+---
+```{python}
+import pandas as pd
+import numpy as np
+import pickle
+from sklearn.metrics import mean_squared_error
+```
+
+```{python}
+train_df = pd.read_csv("../data/processed/train.csv")
+test_df = pd.read_csv("../data/processed/test.csv")
+
+X_train = train_df.drop(columns=["Rings"])
+y_train = train_df["Rings"]
+
+X_test = test_df.drop(columns=["Rings"])
+y_test = test_df["Rings"]
+
+# Load saved KNN model and scaler
+with open("../results/knn_model.pkl", "rb") as f:
+    knn_model = pickle.load(f)
+
+with open("../results/knn_scaler.pkl", "rb") as f:
+    scaler = pickle.load(f)
+
+# Compute predictions and RMSE
+X_train_scaled = scaler.transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+train_pred = knn_model.predict(X_train_scaled)
+test_pred = knn_model.predict(X_test_scaled)
+
+train_rmse = np.sqrt(mean_squared_error(y_train, train_pred))
+test_rmse = np.sqrt(mean_squared_error(y_test, test_pred))
+
+train_rmse_value = round(float(train_rmse), 2)
+test_rmse_value = round(float(test_rmse), 2)
+
+```
+
+
+
+## 1. Summary
+
+In this project, we aimed to build a regression model using the k-Nearest Neighbours (k-NN) algorithm to predict the age of an abalone using its physical characteristics and sex. Because determining abalone age traditionally requires cutting the shell and counting internal rings—a destructive and time-consuming process—machine learning methods offer a valuable non-destructive alternative for estimating age from easily measurable features. In the dataset used here, age is represented as Rings + 1.5, where the additional 1.5 years accounts for early developmental stages. For example, an abalone with 10 rings would be approximately 11.5 years old.
+
+Our fitted k-NN regressor (with k = 5) achieved a training RMSE of `{python} train_rmse_value` and a test RMSE of `{python} test_rmse_value` rings. This means that on unseen data, the model’s predictions typically deviate from the true age by about `{python} test_rmse_value` rings. The @fig-knn-actual-pred comparing actual and predicted ring counts shows a generally increasing trend, but also substantial spread—especially among older abalones. This suggests that while k-NN captures the broad relationship between size and age, predicting exact age remains difficult due to biological variability and overlapping physical measurements. Still, the results demonstrate that physical features contain meaningful information about abalone age, and performance could likely improve with hyperparameter tuning or more advanced models.
+
+Estimating abalone age is important for marine biology research, sustainable fisheries management, and conservation efforts, yet the traditional ring-counting method is destructive and impractical at scale. A predictive model provides a non-invasive alternative, enabling age estimation for live animals in the field. However, its accuracy is limited by natural growth variability and nonlinear developmental patterns, particularly in older individuals. As a result, while machine learning can support broader age-structure assessments and population monitoring, it may not fully replace precise biological aging methods in contexts where exact age determination is required.
+
+## 2. Introduction
+
+#### 2.1 Project Goal:
+The goal of this project is to investigate whether physical features and sex can accurately predict the age of an abalone.
+
+#### 2.2 Background:
+Abalones are marine molluscs that are widely harvested for food and shell products. Understanding their age structure is crucial for fisheries management and conservation planning [@nash1994]. However, determining age is not straightforward: the most accurate method requires cutting the shell and counting internal rings under a microscope, which is destructive, labour-intensive, and not feasible at scale for monitoring wild populations.
+
+The Abalone dataset from the UCI Machine Learning Repository [@dua1995] provides measurements of physical characteristics including:
+
+- Categorical: sex (M, F, I)
+
+- Continuous: length, diameter, height, whole weight, shucked weight, viscera weight, shell weight
+
+The dataset contains 4177 observations and 8 predictor variables, providing a reasonably large sample for training and evaluating regression models. Age is recorded via the Rings variable, with age in years calculated as Rings + 1.5. Because Rings is numeric, predicting age is naturally formulated as a regression problem. Using these non-destructive measurements to estimate age could support more sustainable management and research.
+
+## 3. Methods
+
+#### 3.1 Data and preprocessing
+
+Data were downloaded from the UCI repository [@dua1995] and validated using a pandera schema to check column types, allowed categories for Sex, value ranges, missingness, and duplicate rows. Next, exploratory data analysis (EDA) is performed using the validated dataset. This helped to understand the relationships between physical measurements and age and check for nonlinear patterns and outliers.
+
+Before fitting the model, we performed several preprocessing steps to ensure data quality and suitability for machine learning. We first applied one-hot encoding to the Sex variable to convert it into numeric indicator features. Next, we split the dataset into an 80% training set and a 20% test set to allow for an unbiased evaluation of model performance. Finally, we used deepchecks to examine potential data issues, including feature–label correlations, feature–feature correlations, and label drift between the training and test sets. These checks helped confirm that our features were appropriate for modeling and that no major distribution shifts existed between the training and evaluation data. Highly correlated weight-related features were expected due to shared biological growth processes, and the checks confirmed that there were no severe issues beyond this expected multicollinearity.
+
+#### 3.2 Model Selection
+
+We used a k-nearest neighbours (k-NN) regressor to predict abalone age from physical measurements and sex. For any new abalone, the model identifies the k most similar individuals in the standardized feature space, based on Euclidean distance, and predicts age by averaging the number of rings among those neighbours. We selected k-NN because it is a non-parametric and flexible method that makes no strong assumptions about linearity, offers intuitive predictions grounded in similarity to known examples, and is well suited to capturing the nonlinear relationships between size, weight, sex, and age observed in abalone growth patterns [@waugh1995].
+
+#### 3.3 Model Evaluation
+
+Model performance is assessed, which loads the saved k-NN model and scaler, applies them to the training and test sets, and computes the RMSE for both splits. The script also generates an actual-versus-predicted plot for the test set (@fig-knn-actual-pred). RMSE is an appropriate evaluation metric because the target variable, Rings, is continuous, and the metric penalizes larger errors more severely, making it well suited for age-estimation tasks where extreme mispredictions are particularly undesirabl
+
+## 4. Results
+
+#### 4.1 Exploratory Data Analysis
+@fig-eda-plot summarizes how each physical measurement relates to the number of rings, which serves as a proxy for abalone age. In general, positive associations are observed across most predictors, indicating that larger and heavier abalones tend to have more rings. The observed patterns are nonlinear, with growth appearing faster in younger abalones and gradually slowing for older ones. This widening spread suggests that abalones with similar sizes can still vary considerably in age. Weight-based variables show particularly strong correlations with age, while height appears to be the least informative due to its very narrow range.
+
+Across all measurements, the three sex categories overlap substantially, indicating that sex alone does not form clear separations in age patterns. Because of this, sex is unlikely to serve as a strong individual predictor at this stage, although it is still included as a categorical feature for completeness.
+
+![Comparison of the relationships between abalone physical measurements and age (Rings)](../results/eda_scatter_matrix.png){#fig-eda-plot width=100%}
+
+#### 4.2 Model Performance
+To evaluate whether physical characteristics can predict age, we trained a k-Nearest Neighbours regression model (k = 5) using scaled predictors. @fig-knn-actual-pred shows the relationship between actual and predicted ring counts on the test set. The dashed line represents perfect prediction. While the model captures the general increasing trend, there is considerable spread, especially for older abalones. This indicates that predictions become less reliable as age increases, which is consistent with the biological variability seen in the EDA.
+
+![Actual vs. predicted number of rings for the kNN regression model.](../results/knn_eval_plot.png){#fig-knn-actual-pred width=100%}
+
+Model accuracy is summarized using RMSE, with a training RMSE of `{python} train_rmse_value` and a test RMSE of `{python} test_rmse_value`. These values are reported in @tbl-rmse, which compares model performance on the training and test sets. Given that abalone age in years is calculated as Rings + 1.5, a test RMSE of `{python} test_rmse_value` rings implies that the model typically predicts age with an error of roughly `{python} test_rmse_value` years. This level of accuracy is reasonable for a simple, non-parametric model and suggests that physical features provide useful—but imperfect—information about age.
+
+```{python}
+#| label: tbl-rmse
+#| tbl-cap: RMSE values for training and test data.
+
+rmse_table = pd.DataFrame({
+"Dataset": ["Train", "Test"],
+"RMSE": [round(train_rmse, 3), round(test_rmse, 3)]
+})
+
+rmse_table
+```
+
+## 5. Discussion
+
+The EDA and modelling results indicate that abalone age is broadly reflected in its size and weight, although substantial natural variability and nonlinear growth patterns limit prediction accuracy. The widening spread in @fig-knn-actual-pred, along with the moderate RMSE scores, suggests that physical measurements become weaker indicators of age as abalones grow older.
+
+From a fisheries and conservation standpoint, the model is still valuable because it enables non-destructive age estimation from easily collected measurements. This makes it useful for population-level assessments where approximate age ranges are sufficient. However, the prediction error of roughly two rings may be too large for fine-grained applications, such as distinguishing between neighbouring age classes for precise stock assessments.
+
+Several assumptions and limitations must also be acknowledged. The model assumes that the abalone dataset [@dua1995] is representative of real-world populations, even though abalone growth varies across different habitats and environments. Many weight-based predictors are highly correlated, which is biologically expected but can make distance-based methods like k-NN sensitive to small measurement fluctuations. Additionally, k-NN cannot extrapolate beyond observed data and performs best when the training feature space is densely populated [@clark1996].
+
+Future work could include tuning the hyperparameters of the model, such as the value of k and the choice of distance metric, exploring more expressive models like random forests or gradient boosting, and engineering new features that capture biological growth ratios or nonlinear interactions. Methods that explicitly model the nonlinear relationship between age and physical size may also improve predictive performance.
+
+Overall, the current k-NN model provides a reasonable baseline and demonstrates that physical measurements contain meaningful information about abalone age. However, additional modelling, feature engineering, and validation are needed before the model could be applied reliably in operational or management settings.
+
+
+
+## 6. References: 
+
