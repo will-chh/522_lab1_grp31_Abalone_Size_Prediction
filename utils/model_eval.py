@@ -1,6 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.metrics import mean_squared_error
+import click
+import pandas as pd
+import pickle
 
 def evaluate_knn(
     knn,
@@ -44,3 +47,31 @@ def evaluate_knn(
         plt.show()
 
     return train_rmse, test_rmse
+
+@click.command()
+@click.option("--train_path", required=True, type=str, help="Path to train CSV")
+@click.option("--test_path", required=True, type=str, help="Path to test CSV")
+@click.option("--model_path", required=True, type=str, help="Path to saved KNN model (.pkl)")
+@click.option("--scaler_path", required=True, type=str, help="Path to saved scaler (.pkl)")
+@click.option("--no_plot", is_flag=True, help="Disable plotting")
+def main(train_path, test_path, model_path, scaler_path, no_plot):
+    # Load data
+    train_df = pd.read_csv(train_path)
+    test_df = pd.read_csv(test_path)
+    X_train = train_df.drop("Rings", axis=1)
+    y_train = train_df["Rings"]
+    X_test = test_df.drop("Rings", axis=1)
+    y_test = test_df["Rings"]
+
+    # Load model and scaler
+    with open(model_path, "rb") as f:
+        knn = pickle.load(f)
+    with open(scaler_path, "rb") as f:
+        scaler = pickle.load(f)
+
+    # Evaluate
+    from __main__ import evaluate_knn  # import the function from this file
+    evaluate_knn(knn, scaler, X_train, y_train, X_test, y_test, plot=not no_plot)
+
+if __name__ == "__main__":
+    main()

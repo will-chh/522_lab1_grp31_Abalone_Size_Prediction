@@ -6,6 +6,7 @@ from deepchecks.tabular.checks import (
     FeatureFeatureCorrelation,
     LabelDrift,
 )
+import click
 
 def preprocess_and_split(
     abalone: pd.DataFrame,
@@ -68,3 +69,26 @@ def preprocess_and_split(
         raise ValueError("Target variable distribution drift detected.")
 
     return X_train, X_test, y_train, y_test
+
+
+# output for all vars
+@click.command()
+@click.option("--input_path", required=True, type=str, help="Path to validated CSV")
+@click.option("--train_output", required=True, type=str, help="Path to save train CSV")
+@click.option("--test_output", required=True, type=str, help="Path to save test CSV")
+@click.option("--test_size", default=0.2, type=float, help="Test set proportion")
+@click.option("--random_state", default=42, type=int, help="Random seed")
+def main(input_path, train_output, test_output, test_size, random_state):
+    df = pd.read_csv(input_path)
+    X_train, X_test, y_train, y_test = preprocess_and_split(df, test_size, random_state)
+
+    train_df = X_train.copy()
+    train_df["Rings"] = y_train
+    test_df = X_test.copy()
+    test_df["Rings"] = y_test
+
+    train_df.to_csv(train_output, index=False)
+    test_df.to_csv(test_output, index=False)
+
+if __name__ == "__main__":
+    main()
